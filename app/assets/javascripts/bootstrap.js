@@ -7,7 +7,12 @@
 if (typeof jQuery === 'undefined') {
   throw new Error('Bootstrap\'s JavaScript requires jQuery')
 }
-
+$(function() {
+    $('.required-icon').tooltip({
+        placement: 'left',
+        title: 'Required field'
+        });
+});
 +function ($) {
   'use strict';
   var version = $.fn.jquery.split(' ')[0].split('.')
