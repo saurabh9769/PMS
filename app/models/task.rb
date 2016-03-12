@@ -1,5 +1,6 @@
 class Task < ActiveRecord::Base
 
-	belongs_to :milestone
+	has_many :milestone_task_ids
+	has_many :milestones , through: :milestone_task_ids
 	
 end

@@ -335,10 +335,11 @@ th {
     background: #fff !important;
   }
   #container1 {
-    background-color: #e2dada;
+    background-color: #0040FF;
   }
   .navbar {
     display: none;
+    background-color: #FFFFFF;
   }
   .btn > .caret,
   .dropup > .btn > .caret {

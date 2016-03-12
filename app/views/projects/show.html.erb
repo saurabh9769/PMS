@@ -1,29 +1,45 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Uid:</strong>
-  <%= @project.uid %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
-
-<p>
-  <strong>Start date:</strong>
-  <%= @project.start_date %>
-</p>
-
-<p>
-  <strong>End date:</strong>
-  <%= @project.end_date %>
-</p>
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+    	<div class="pull-right">
+		    <%= link_to 'Edit', edit_project_path(@project) , :class => "label label-default" %> |
+				<%= link_to 'Back', projects_path , :class => "label label-default" %> | 
+				<%= link_to 'Add Milestone' , new_project_milestone_path(project_id: @project.id) , :class => "label label-default" %>
+    	</div>
+	  	<div class="panel panel-login">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-12">
+              <p><strong>Project Information</strong></p>
+            </div>
+          </div>
+          <hr>
+        </div>
+	      <div class="container">
+			    <div class="row">
+			      <div class="col-md-12">
+							<p>
+							  <strong>Name:</strong>
+							  <%= @project.name %>
+							</p>
+							<p>
+							  <strong>Description:</strong>
+							  <%= @project.description %>
+							</p>
+							<p>
+							  <strong>Start date:</strong>
+							  <%= @project.start_date %>
+							</p>
+							<p>
+							  <strong>End date:</strong>
+							  <%= @project.end_date %>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

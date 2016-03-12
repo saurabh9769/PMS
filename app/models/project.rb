@@ -1,6 +1,9 @@
 class Project < ActiveRecord::Base
 
-	belongs_to :user
-	has_many :milestones
+	has_many :user_project_ids
+	has_many :users , through: :user_project_ids
+
+	has_many :milestone_project_ids
+  	has_many :milestones , through: :milestone_project_ids
 	
 end

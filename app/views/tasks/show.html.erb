@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Mid:</strong>
-  <%= @task.mid %>
-</p>
-
-<p>
   <strong>Name:</strong>
   <%= @task.name %>
 </p>
@@ -30,5 +25,5 @@
   <%= @task.status %>
 </p>
 
-<%= link_to 'Edit', edit_task_path(@task) %> |
-<%= link_to 'Back', tasks_path %>
+<%= link_to 'Edit', edit_project_milestone_task_path(project_id: @project.id , milestone_id: @milestone.id , id: @task.id) %> |
+<%= link_to 'Back', project_milestone_tasks_path(project_id: @project.id , milestone_id: @milestone.id) %>

@@ -5,12 +5,15 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    # binding.pry
+    @projects = current_user.projects
+    # @projects = Project.all
   end
 
   # GET /projects/1
   # GET /projects/1.json
   def show
+    # binding.pry
     @project = Project.find(params[:id])
   end
 
@@ -26,8 +29,10 @@ class ProjectsController < ApplicationController
   # POST /projects
   # POST /projects.json
   def create
-    @project = Project.new(project_params)
 
+        # binding.pry
+    @project = current_user.projects.create(project_params)
+    # binding.pry
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: 'Project was successfully created.' }

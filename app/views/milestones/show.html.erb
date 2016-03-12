@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Pid:</strong>
-  <%= @milestone.pid %>
-</p>
-
-<p>
   <strong>Name:</strong>
   <%= @milestone.name %>
 </p>
@@ -25,5 +20,6 @@
   <%= @milestone.end_date %>
 </p>
 
-<%= link_to 'Edit', edit_milestone_path(@milestone) %> |
-<%= link_to 'Back', milestones_path %>
+<%= link_to 'Edit', edit_project_milestone_path(id: @milestone.id , project_id: @project.id) %> |
+<%= link_to 'Back', project_milestones_path(project_id: @project.id) %> | 
+<%= link_to 'Add Task' , new_project_milestone_task_path(project_id: @project.id , milestone_id: @milestone.id) %>

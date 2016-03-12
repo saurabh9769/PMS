@@ -1,35 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="panel panel-default">
+  <div class="panel-heading"><h3>Milestones</h3></div>
+  <div class="panel-body">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <table class="table table-list-search table-bordered">
+          <div class="pull-right">
+            <%= link_to 'New Milestone', new_project_milestone_path(@project) , :class => "btn btn-info" %>
+          </div>
+          <br>
+          <br>
+          <br>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Start date</th>
+              <th>End date</th>
+              <th colspan="3"></th>
+            </tr>
+          </thead>
 
-<h1>Listing Milestones</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Pid</th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @milestones.each do |milestone| %>
-      <tr>
-        <td><%= milestone.pid %></td>
-        <td><%= milestone.name %></td>
-        <td><%= milestone.description %></td>
-        <td><%= milestone.start_date %></td>
-        <td><%= milestone.end_date %></td>
-        <td><%= link_to 'Show', milestone %></td>
-        <td><%= link_to 'Edit', edit_milestone_path(milestone) %></td>
-        <td><%= link_to 'Destroy', milestone, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Milestone', new_milestone_path %>
+          <tbody>
+            <% @milestones.each do |milestone| %>
+              <tr>
+                <td><%= milestone.name %></td>
+                <td><%= milestone.description %></td>
+                <td><%= milestone.start_date %></td>
+                <td><%= milestone.end_date %></td>
+                <td><%= link_to 'Show', project_milestone_path(project_id: milestone.projects.last.id , id: milestone.id) %></td>
+                <td><%= link_to 'Edit', edit_project_milestone_path(project_id: milestone.projects.last.id , id: milestone.id) %></td>
+                <td><%= link_to 'Destroy', project_milestone_path(project_id: milestone.projects.last.id , id: milestone.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= link_to "Go To Projects"  , projects_path %>
+        
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>
