@@ -1,29 +1,56 @@
-<p id="notice"><%= notice %></p>
+<br>
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="pull-right">
+        <%= link_to 'Edit', edit_project_milestone_task_path(project_id: @project.id , milestone_id: @milestone.id , id: @task.id) , :class => "label label-default"  %> |
+        <%= link_to 'Back', project_milestone_tasks_path(project_id: @project.id , milestone_id: @milestone.id) , :class => "label label-default"  %>
+      </div>
+      <div class="panel panel-login">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-12">
+              <p><strong>Tasks Information</strong></p>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+            
+              <p>
+                <strong>Name:</strong>
+                <%= @task.name %>
+              </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @task.name %>
-</p>
+              <p>
+                <strong>Description:</strong>
+                <%= @task.description %>
+              </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @task.description %>
-</p>
+              <p>
+                <strong>Start date:</strong>
+                <%= @task.start_date %>
+              </p>
 
-<p>
-  <strong>Start date:</strong>
-  <%= @task.start_date %>
-</p>
+              <p>
+                <strong>End date:</strong>
+                <%= @task.end_date %>
+              </p>
 
-<p>
-  <strong>End date:</strong>
-  <%= @task.end_date %>
-</p>
+              <p>
+                <strong>Status:</strong>
+                <%= @task.status %>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Status:</strong>
-  <%= @task.status %>
-</p>
 
-<%= link_to 'Edit', edit_project_milestone_task_path(project_id: @project.id , milestone_id: @milestone.id , id: @task.id) %> |
-<%= link_to 'Back', project_milestone_tasks_path(project_id: @project.id , milestone_id: @milestone.id) %>
+
