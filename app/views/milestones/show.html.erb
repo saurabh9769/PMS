@@ -6,7 +6,10 @@
     	<div class="pull-right">
 		   	<%= link_to 'Edit', edit_project_milestone_path(id: @milestone.id , project_id: @project.id) , :class => "label label-default"  %> |
 				<%= link_to 'Back', project_milestones_path(project_id: @project.id) , :class => "label label-default"  %> | 
-				<%= link_to 'Add Task' , new_project_milestone_task_path(project_id: @project.id , milestone_id: @milestone.id) , :class => "label label-default" %>
+				<%= link_to 'Add Task' , new_project_milestone_task_path(project_id: @project.id , milestone_id: @milestone.id) , :class => "label label-default" %> | 
+				<%= link_to 'View Tasks' , project_milestone_tasks_path(project_id: @project.id , milestone_id: @milestone.id) , :class => "label label-default" %>
+				<br>
+				<br>
     	</div>
 	  	<div class="panel panel-login">
         <div class="panel-heading">

@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks
@@ -8,6 +9,13 @@ class TasksController < ApplicationController
     @project = Project.find(params[:project_id])
     @milestone = Milestone.find(params[:milestone_id])
     @tasks = @milestone.tasks
+    
+    if params[:search]
+      @tasks = @milestone.tasks.search(params[:search]).order("created_at DESC")
+    else
+      @tasks = @milestone.tasks.order('created_at ASC')
+    end
+
   end
 
   # GET /tasks/1

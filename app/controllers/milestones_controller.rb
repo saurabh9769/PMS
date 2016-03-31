@@ -1,4 +1,5 @@
 class MilestonesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_milestone, only: [:show, :edit, :update, :destroy]
 
   # GET /milestones
@@ -8,6 +9,11 @@ class MilestonesController < ApplicationController
     # @milestones = current_user.milestones
     @project = Project.find(params[:project_id])
     @milestones = @project.milestones
+    if params[:search]
+      @milestones = @project.milestones.search(params[:search]).order("created_at DESC")
+    else
+      milestones = @project.milestones.order('created_at ASC')
+    end
   end
 
   # GET /milestones/1

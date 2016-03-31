@@ -6,4 +6,9 @@ class Milestone < ActiveRecord::Base
 	has_many :milestone_task_ids
 	has_many :tasks , through: :milestone_task_ids
 
+	def self.search(search)
+	  where("Name ILIKE ?", "%#{search}%") 
+	  # where("Description ILIKE ?", "%#{search}%")
+	end
+	
 end

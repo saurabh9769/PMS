@@ -7,6 +7,11 @@ class ProjectsController < ApplicationController
   def index
     # binding.pry
     @projects = current_user.projects
+    if params[:search]
+      @projects = current_user.projects.search(params[:search]).order("created_at DESC")
+    else
+      @projects = current_user.projects.order('created_at ASC')
+    end
     # @projects = Project.all
   end
 

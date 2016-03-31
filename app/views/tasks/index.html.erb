@@ -1,4 +1,8 @@
 <div class="panel panel-default">
+  <%= form_tag(project_milestone_tasks_path, :method => "get", id: "search-form" , :id => "custom-search-form" , :class => "form-search form-horizontal pull-right" ) do %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search Tasks" %>
+    <%= submit_tag "Search" %>
+  <% end %>
   <div class="panel-heading"><h3>Tasks</h3></div>
   <div class="panel-body">
   </div>
