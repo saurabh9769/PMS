@@ -11,29 +11,22 @@
 				<br>
 				<br>
     	</div>
-	  	<div class="panel panel-login">
+	  	<div class="panel panel-default">
         <div class="panel-heading">
           <div class="row">
             <div class="col-xs-12">
-              <p><strong>Milestone Information</strong></p>
+              <h3 class="text-center"><strong>Milestone - <%= @milestone.name %></strong></h3>
             </div>
           </div>
-          <hr>
         </div>
+        <br>
 	      <div class="container">
 			    <div class="row">
 			      <div class="col-md-6">
-			      
-							<p>
-							  <strong>Name:</strong>
-							  <%= @milestone.name %>
-							</p>
-
-							<p>
-							  <strong>Description:</strong>
-							  <%= @milestone.description %>
-							</p>
-
+							<div class="well col-md-10">
+							  Description : <%= @milestone.description %>
+							</div>
+							<div class="clearfix"></div>
 							<p>
 							  <strong>Start date:</strong>
 							  <%= @milestone.start_date %>
@@ -43,6 +36,7 @@
 							  <strong>End date:</strong>
 							  <%= @milestone.end_date %>
 							</p>
+							<br>
 						</div>
 					</div>
 				</div>

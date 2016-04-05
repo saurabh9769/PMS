@@ -1,18 +1,20 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
 
   # GET /projects
   # GET /projects.json
   def index
     # binding.pry
-    @projects = current_user.projects
+    # @projects = current_user.projects
     if params[:search]
-      @projects = current_user.projects.search(params[:search]).order("created_at DESC")
+      @projects = current_user.projects.search(params[:search]).order("created_at DESC").page(params[:page])
     else
-      @projects = current_user.projects.order('created_at ASC')
+      @projects = current_user.projects.order('created_at ASC').page(params[:page])
     end
     # @projects = Project.all
+    # @projects = Project.order(:name).
   end
 
   # GET /projects/1

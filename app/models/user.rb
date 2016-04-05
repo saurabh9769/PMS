@@ -8,4 +8,6 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  ROLES = %w[Admin User].freeze
 end

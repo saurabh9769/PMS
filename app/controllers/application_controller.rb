@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   after_filter :store_location
 
 	def store_location
@@ -24,7 +26,11 @@ class ApplicationController < ActionController::Base
 	end
 
 	def after_sign_out_path_for(resource_or_scope)
-  		request.referrer
+  	request.referrer
 	end
 
+	def configure_permitted_parameters
+  	devise_parameter_sanitizer.for(:sign_up) << :role
+  	devise_parameter_sanitizer.for(:account_update) << :role
+ 	end
 end

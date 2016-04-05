@@ -1,15 +1,15 @@
+<div class="pull-left">
+  <i class="glyphicon glyphicon-arrow-left"></i> <%= link_to "Go To Projects"  , projects_path %>
+</div>
+  <%= render 'search_milestone' %>
 <div class="panel panel-default">
-  <%= form_tag(project_milestones_path, :method => "get", id: "search-form" , :id => "custom-search-form" , :class => "form-search form-horizontal pull-right" ) do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Milestones" %>
-    <%= submit_tag "Search" %>
-  <% end %>
   <div class="panel-heading"><h3>Milestones</h3></div>
   <div class="panel-body">
   </div>
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <table class="table table-list-search table-bordered">
+        <table class="table table-list-search table-hover">
           <div class="pull-right">
             <%= link_to 'New Milestone', new_project_milestone_path(@project) , :class => "btn btn-info" %>
           </div>
@@ -40,8 +40,6 @@
             <% end %>
           </tbody>
         </table>
-        <%= link_to "Go To Projects"  , projects_path %>
-        
         <br>
         <br>
       </div>

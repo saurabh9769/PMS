@@ -8,8 +8,12 @@ class Project < ActiveRecord::Base
 	
 	
 	def self.search(search)
-	  where("Name ILIKE ?", "%#{search}%") 
+		
+	  where("name ILIKE ?", "%#{search}%") 
 	  # where("Description ILIKE ?", "%#{search}%")
 	end
+
+	paginates_per 4
+	max_paginates_per 100
 
 end

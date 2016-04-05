@@ -1,0 +1,5 @@
+<%= form_tag(projects_path, :method => "get", id: "search-form" , :class => "form-search form-horizontal pull-right col-md-3" ) do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Projects", :class=> "form-control" %>
+  <i class="glyphicon glyphicon-search project-search"></i>
+<% end %>
+<div class="clearfix"></div>
