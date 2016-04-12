@@ -8,12 +8,17 @@ class MilestonesController < ApplicationController
     # binding.pry
     # @milestones = current_user.milestones
     @project = Project.find(params[:project_id])
-    @milestones = @project.milestones
+    @q = Milestone.ransack(params[:q])
+    @q.result.includes(:name).page(params[:page])
+
+
     if params[:search]
-      @milestones = @project.milestones.search(params[:search]).order("created_at DESC")
+      @milestones = @project.milestones.search(params[:search]).order("created_at DESC").page(params[:page])
     else
-      milestones = @project.milestones.order('created_at ASC')
+      @milestones = @project.milestones.order('created_at ASC').page(params[:page])
     end
+      
+  # @milestones = @q.result.includes(:name).page(params[:page])
   end
 
   # GET /milestones/1

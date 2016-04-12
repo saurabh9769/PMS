@@ -8,12 +8,11 @@ class TasksController < ApplicationController
     # @tasks = current_milestone.tasks
     @project = Project.find(params[:project_id])
     @milestone = Milestone.find(params[:milestone_id])
-    @tasks = @milestone.tasks
     
     if params[:search]
-      @tasks = @milestone.tasks.search(params[:search]).order("created_at DESC")
+      @tasks = @milestone.tasks.search(params[:search]).order("created_at DESC").page(params[:page])
     else
-      @tasks = @milestone.tasks.order('created_at ASC')
+      @tasks = @milestone.tasks.order('created_at ASC').page(params[:page])
     end
 
   end

@@ -18,31 +18,33 @@
           <br>
           <thead>
             <tr>
-              <th>Name</th>
+              <th><%= sort_link(@q, :name) %></th>
               <th>Description</th>
               <th>Start date</th>
               <th>End date</th>
               <th colspan="3">Manage</th>
             </tr>
           </thead>
-
           <tbody>
-            <% @milestones.each do |milestone| %>
+          <%if @q.result.present? %>
+            <% @q.result.each do |milestone| %>
               <tr>
                 <td><%= milestone.name %></td>
                 <td><%= milestone.description %></td>
                 <td><%= milestone.start_date %></td>
                 <td><%= milestone.end_date %></td>
-                <td><%= link_to 'Show', project_milestone_path(project_id: milestone.projects.last.id , id: milestone.id) %></td>
-                <td><%= link_to 'Edit', edit_project_milestone_path(project_id: milestone.projects.last.id , id: milestone.id) %></td>
-                <td><%= link_to 'Destroy', project_milestone_path(project_id: milestone.projects.last.id , id: milestone.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to '', project_milestone_path(project_id: milestone.projects.last.id , id: milestone.id) , :class => "glyphicon glyphicon-eye-open" , :title => "Show" %></td>
+                <td><%= link_to '', edit_project_milestone_path(project_id: milestone.projects.last.id , id: milestone.id) , :class => "glyphicon glyphicon-wrench" , :title => "Edit" %></td>
+                <td><%= link_to '', project_milestone_path(project_id: milestone.projects.last.id , id: milestone.id), method: :delete, data: { confirm: 'Are you sure?' } , :class => "glyphicon glyphicon-trash" , :title => "Destroy" %></td>
               </tr>
             <% end %>
           </tbody>
         </table>
+        <%#= paginate @q.result %>
+        <%end%>
         <br>
         <br>
       </div>
     </div>
   </div>
-</div>
+</div> 

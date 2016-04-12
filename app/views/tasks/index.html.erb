@@ -1,3 +1,7 @@
+<div class="pull-left">
+  <i class="glyphicon glyphicon-arrow-left"></i> <%= link_to "Go To Projects"  , projects_path %> |  
+        <%= link_to "Go To Milestones" , project_milestones_path(project_id: @project.id) %>
+</div>
 <%= render 'search_task_form' %>
 <div class="panel panel-default">
   <div class="panel-heading">
@@ -35,16 +39,15 @@
                 <td><%= task.start_date %></td>
                 <td><%= task.end_date %></td>
                 <td><%= task.status %></td>
-                <td><%= link_to 'Show', project_milestone_task_path(project_id: @project.id , milestone_id: @milestone.id , id: task.id) %></td>
-                <td><%= link_to 'Edit', edit_project_milestone_task_path(project_id: @project.id , milestone_id: @milestone.id , id: task.id) %></td>
-                <td><%= link_to 'Destroy', project_milestone_task_path(project_id: @project.id , milestone_id: @milestone.id , id: task.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to '', project_milestone_task_path(project_id: @project.id , milestone_id: @milestone.id , id: task.id) , :class => "glyphicon glyphicon-eye-open" , :title => "Show" %></td>
+                <td><%= link_to '', edit_project_milestone_task_path(project_id: @project.id , milestone_id: @milestone.id , id: task.id) ,  :class => "glyphicon glyphicon-wrench" , :title => "Edit" %></td>
+                <td><%= link_to '', project_milestone_task_path(project_id: @project.id , milestone_id: @milestone.id , id: task.id), method: :delete, data: { confirm: 'Are you sure?' } , :class => "glyphicon glyphicon-trash" , :title => "Destroy" %></td>
               </tr>
             <% end %>
           </tbody>
         </table>
+        <%= paginate @tasks %>
         <br>
-        <%= link_to "Go To Projects"  , projects_path %> |  
-        <%= link_to "Go To Milestones" , project_milestones_path(project_id: @project.id) %>
         <br>
         <br>
       </div>

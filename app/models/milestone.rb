@@ -11,4 +11,7 @@ class Milestone < ActiveRecord::Base
 	  # where("Description ILIKE ?", "%#{search}%")
 	end
 	
+	paginates_per 4
+	max_paginates_per 100
+	
 end

@@ -23,22 +23,36 @@
   <br>
 
   <div class="form-field">
-    <%= f.text_field :start_date , :class => "datepicker" , :placeholder => "Start Date(mm/dd//yyyy)" %>
+    <%= f.text_field :start_date , :class => "datepicker form-control" , :placeholder => "Start Date(mm/dd//yyyy)" %>
   </div>
 
   <br>
   
   <div class="form-field">
-    <%= f.text_field :end_date , :class => "datepicker" , :placeholder => "End Date(mm/dd//yyyy)" %>
+    <%= f.text_field :end_date , :class => "datepicker form-control" , :placeholder => "End Date(mm/dd//yyyy)" %>
   </div>
   
   <br>
+
+  <select data-tags="true" data-placeholder="Select an option" data-allow-clear="true">
+    
+    
+  </select>
+
   
+  <br>
+
   <div class="actions">
     <button class="btn btn-info btn-block" type="submit">Submit</button>
   </div>
 <% end %>
-  
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $(".js-example-basic-single").select2();
+});
+</script>
+
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script>

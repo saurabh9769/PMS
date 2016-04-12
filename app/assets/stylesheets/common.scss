@@ -33,3 +33,19 @@
 .nomargin {
 	margin: 0;
 }
+
+.glyphicon {
+	&:hover {
+		text-decoration: none;
+		transform: scale(1.05);
+	}
+}
+
+#search-form {
+	margin-bottom: 25px;
+	.project-search {
+		position: absolute;
+	  right: 25px;
+	  top: 10px;
+	}	
+}

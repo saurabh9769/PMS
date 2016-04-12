@@ -7,24 +7,18 @@
         <%= link_to 'Edit', edit_project_milestone_task_path(project_id: @project.id , milestone_id: @milestone.id , id: @task.id) , :class => "label label-default"  %> |
         <%= link_to 'Back', project_milestone_tasks_path(project_id: @project.id , milestone_id: @milestone.id) , :class => "label label-default"  %>
       </div>
-      <div class="panel panel-login">
+      <div class="panel panel-default">
         <div class="panel-heading">
           <div class="row">
             <div class="col-xs-12">
-              <p><strong>Tasks Information</strong></p>
+              <h3 class="text-center"><strong>Tasks - <%= @task.name %></strong></h3>
             </div>
           </div>
-          <hr>
         </div>
+        <br>
         <div class="container">
           <div class="row">
             <div class="col-md-6">
-            
-              <p>
-                <strong>Name:</strong>
-                <%= @task.name %>
-              </p>
-
               <p>
                 <strong>Description:</strong>
                 <%= @task.description %>
