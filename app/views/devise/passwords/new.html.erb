@@ -1,24 +1,35 @@
 <div class="col-md-6 col-md-offset-3">
-  <div class="panel panel-deafult">
-    <div class="panel-heading">
-      <div class="row">
-        <div class="col-xs-12">
-
-				<h2>Forgot your password?</h2>
-
-				<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-				  <%= devise_error_messages! %>
-				  <br>
-				  <div class="field">
-				    <%= f.email_field :email, autofocus: true , :class => "form-control" , :placeholder => "Email Address" %>
-				  </div>
-				  <br>
-				  <div class="actions">
-				    <%= f.submit "Send me reset password instructions" , :class => "form-control btn btn-info"  %>
-				  </div>
-				<% end %>
-				<br>
-				<%= render "devise/shared/links" %>
+  <div class="row">
+    <div class="col-lg-12">
+      <div id="login" class="animate form">
+        <section class="password_content">
+					<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+					  <%= devise_error_messages! %>
+					  <h2>Forgot your password?</h2>
+					  <hr>
+					  <br>
+					  <div class="field">
+					    <%= f.email_field :email, autofocus: true , :class => "form-control" , :placeholder => "Email Address" %>
+					  </div>
+					  <br>
+					  <div class="actions">
+					    <%= f.submit "Reset Password" , :class => "btn btn-info btn-block"   %>
+					  </div>
+					<% end %>
+					<br>
+					<div class="flex-box justify-content-space-around">
+						<div class="col-md-6">
+							<%- if controller_name != 'sessions' %>
+							  <%= link_to "Log in", new_session_path(resource_name), :class=>"btn btn-default" %><br />
+							<% end -%>						
+						</div>
+						<div class="col-md-3">
+							<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+							  <%= link_to "Sign up", new_registration_path(resource_name), :class=>"btn btn-default" %><br />
+							<% end -%>						
+						</div>
+					</div>
+				</section>
 			</div>	
 		</div>
 	</div>

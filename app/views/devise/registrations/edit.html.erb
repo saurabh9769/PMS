@@ -1,72 +1,55 @@
-<div class="container">
+<div class="col-md-6 col-md-offset-3">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <div class="pull-right">
-        <%= link_to "Back", :back , :class => "label label-default" %>
-        <br>
-      </div>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <div class="row">
-            <div class="col-xs-12">
-              <div class="text-center"><h3><strong>Edit <%= resource_name.to_s.humanize %></strong></h3></div>
-            </div>
+    <div class="col-lg-12">
+      <div id="login" class="animate form">
+        <section class="login_content">
+          <div class="pull-right">
+            <%= link_to "Back", :back , :class => "label label-default" %>
           </div>
-        </div>
-        <div class="panel-body">
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-          <%= devise_error_messages! %>
           <br>
-          <div class="text-center">
-            <div class="row">
-              <div class="col-lg-12 col-md-6 col-xs-6">
-                <div class="form-group">
-                  <div class="field">
-                    <%= f.email_field :email, autofocus: true , :placeholder => "Email ID" , :class => "form-control"%>
-                  </div>
-                  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-                  <% end %>
-
-                  <div class="field">
-                    <br>
-                    <%= f.password_field :password, autocomplete: "off" , :placeholder => "Password" , :class => "form-control" %>
-                  </div>
-
-                  <div class="field">
-                    <br>
-                    <%= f.password_field :password_confirmation, autocomplete: "off" , :placeholder => "Confirm Password" , :class => "form-control" %>
-                  </div>
-
-                  <div class="field">
-                    <br>
-                    <%= f.password_field :current_password, autocomplete: "off" , :placeholder => "Current Password" , :class => "form-control" %>
-                  </div>
-                  <br>
-                  
-                  <div class="field">
-                    <div class="text-center">
-                      <br>
-                      <%= f.collection_select :role, User::ROLES, :to_s, :humanize , {prompt: "Select a Role"}, {class: "form-control"} %>
-                    </div>
-                  </div>
-
-                  <br>
-
-                  <div class="actions">
-                    <button class="btn btn-success btn-block" type="submit">Submit</button>
-                  </div>
-                <% end %>
-
-                <h3>Cancel my account</h3>
-
-                <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete , :class => "btn btn-danger btn-block" %></p>
-
-                </div>
-              </div>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= devise_error_messages! %>
+            <h2><strong>Edit <%= resource_name.to_s.humanize %></strong></h2>
+            <br>
+            <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
+              <%= f.text_field :first_name, autofocus: true , :placeholder => "First Name" , :class => "form-control has-feedback-left" , :id => "inputSuccess2" %>
+              <span class="glyphicon glyphicon-user form-control-feedback left" aria-hidden="true"></span>
             </div>
-          </div>
-        </div>
+            <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
+              <%= f.text_field :last_name, autofocus: true , :placeholder => "Last Name" , :class => "form-control has-feedback-left" , :id => "inputSuccess2" %>
+              <span class="glyphicon glyphicon-user form-control-feedback left" aria-hidden="true"></span>
+            </div>
+            <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
+              <%= f.email_field :email, autofocus: true, :class => "form-control has-feedback-left" , :placeholder => "Email Address " , :required => "" , :id => "inputSuccess4" %>
+              <span class="glyphicon glyphicon-envelope form-control-feedback left" aria-hidden="true"></span>
+            </div>
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <% end %>
+            <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
+              <%= f.password_field :password, autocomplete: "off" , :class => "form-control has-feedback-left" , :placeholder => "Password (minimum 8 characters)" %>
+              <span class="glyphicon glyphicon-lock form-control-feedback left" aria-hidden="true"></span>
+            </div>
+            <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
+              <%= f.password_field :password_confirmation, autocomplete: "off" , :class => "form-control has-feedback-left" , :placeholder => "Password Confirmation" %>
+              <span class="glyphicon glyphicon-lock form-control-feedback left" aria-hidden="true"></span>
+            </div>
+            <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
+              <%= f.password_field :password, autocomplete: "off" , :class => "form-control has-feedback-left" , :placeholder => "Current Password" %>
+              <span class="glyphicon glyphicon-lock form-control-feedback left" aria-hidden="true"></span>
+            </div>
+            <div class="text-center col-md-12 col-sm-6 col-xs-12 form-group has-feedback">              
+              <%= f.collection_select :role, User::ROLES, :to_s, :humanize , {prompt: "Select a Role"}, {class: "form-control"} %>
+              <br>
+            </div>
+            <br>
+            <div class="text-center col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
+              <button class="btn btn-success btn-block" type="submit">Submit</button>
+              <h3>Cancel my account</h3>
+              <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete , :class => "btn btn-danger btn-block" %></p>
+            </div>
+          <% end %>
+        </section>
       </div>
     </div>
   </div>

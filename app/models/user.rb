@@ -10,4 +10,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   ROLES = %w[Admin User].freeze
+  validates_presence_of :first_name, :last_name
 end

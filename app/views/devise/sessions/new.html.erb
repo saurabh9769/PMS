@@ -1,94 +1,35 @@
-<div class="col-md-6 col-md-offset-3">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <div class="text-center">
-        <div class="row">
-          <div class="col-xs-12">
-            <p><strong><h4>Log in</h4></strong></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr>
-    <div class="panel-body">
-      <div class="row">
-        <div class="col-lg-12">
-        <form id="login-form" method="post" role="form" style="display: block;">
-          <div class="form-group">
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="field">
-
-              <%= f.email_field :email, autofocus: true, :class => "form-control" , :placeholder => "Email Address" %>
+<div class="col-md-8 col-md-offset-2">
+  <div class="row">
+    <div class="col-lg-12">
+      <div id="login" class="animate form">
+        <section class="login_content">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <h1>Login Form</h1> 
+             <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
+              <%= f.email_field :email, autofocus: true, :class => "form-control has-feedback-left" , :placeholder => "Email Address " , :required => "" , :id => "inputSuccess4" %>
+              <span class="glyphicon glyphicon-envelope form-control-feedback left" aria-hidden="true"></span>
             </div>
-
-            <div class="field">
-              <br />
-              <%= f.password_field :password, autocomplete: "off" , :class => "form-control" , :placeholder => "Password" %>
+            <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
+              <%= f.password_field :password, autocomplete: "off" , :class => "form-control has-feedback-left" , :placeholder => "Password" %>
+              <span class="glyphicon glyphicon-lock form-control-feedback left" aria-hidden="true"></span>
             </div>
-            <br/>
-            <% if devise_mapping.rememberable? -%>
-              <div class="field">
-                <%= f.check_box :remember_me %>
-                <%= f.label :remember_me %>
-              </div>
-            <% end -%>
-          </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-sm-6 col-sm-offset-3">
-                <div class="actions">
-                   <button type="submit" class="btn btn-success btn-block">Sign in</button>
+            <div>
+              <% if devise_mapping.rememberable? -%>
+                <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
                 </div>
-                <div class="form-group">
-                  <div class="row">
-                    <div class="col-lg-12">
-                      <div class="text-center">
-                      <br>
-                        <%= render "devise/shared/links" %>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <% end %>
-              </div>
+              <% end -%>            
+               <button type="submit" class="btn btn-success btn-block col-md-12 col-sm-6 col-xs-12 form-group has-feedback">Sign in</button>
             </div>
-          </div>
-        </form>
-      
-        <form id="register-form" action="http://phpoll.com/register/process" method="post" role="form" style="display: none;">
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-          <%= devise_error_messages! %>
-          <div class="form-group">
-            <%= f.email_field :email, autofocus: true , :name => "email" , :id => "email" , :tabindex => "1" , :class => "form-control" , :placeholder => "Email Address" , :value => "" %>
-          </div>
-          <div class="form-group">
-            <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
-            <% end %><br />
-            <%= f.password_field :password, autocomplete: "off" , :name => "password" , :id => "password" , :tabindex => "2" , :class => "form-control" , :placeholder =>"Password" %>
-          </div>
-          <div class="form-group">
-            <%= f.password_field :password_confirmation, autocomplete: "off" , :name => "confirm-password" , :id => "confirm-password" , :tabindex => "2" , :class => "form-control" , :placeholder => "Confirm Password" %>
-          </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-sm-6 col-sm-offset-3">
-                 <%= f.submit "Sign up"  , :name => "register-submit" , :id => "register-submit" , :tabindex => "4" , :class => "form-control btn btn-register" , :value => "Register Now" %>
-              </div>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="text-center">
-                <br>
-                  <%= render "devise/shared/links" %>
-                </div>
-              </div>
-            </div>
-          </div>
-          <% end %>
-        </form>
+            <div class="clearfix"></div>
+            <div class="separator"></div>
+            <div class="clearfix"></div>
+            <%= render "devise/shared/links" %>
+         <% end %>
+        <!-- form -->
+        </section>
+      <!-- content -->
       </div>
     </div>
   </div>

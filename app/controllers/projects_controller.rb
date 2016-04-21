@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_project ,only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
   # GET /projects
@@ -26,6 +26,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
+    @users = User.all
     @project = Project.new
   end
 
@@ -37,7 +38,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
 
-        binding.pry
+        # binding.pry
     @project = current_user.projects.create(project_params)
     # binding.pry
     respond_to do |format|
@@ -86,4 +87,5 @@ class ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit(:uid, :name, :description, :start_date, :end_date)
     end
+
 end

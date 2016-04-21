@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   
+  default_url_options :host => "localhost"
   root 'projects#index'
 
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "users/registrations"}
+
+  resources :users, only: [:index]
   
   resources :projects do
     resources :milestones do
