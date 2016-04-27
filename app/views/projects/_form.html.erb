@@ -1,3 +1,4 @@
+<%= javascript_include_tag "/assets/projects" %>
 <%= form_for(@project) do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
@@ -11,7 +12,7 @@
   <% end %>
 
   <div class="item form-group bad">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name : <span class="required">*</span>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name :<span class="required">*</span>
     </label>
     <div class="col-md-8 col-sm-8 col-xs-12">
       <%= f.text_field :name , :placeholder => "Name" , :class => "form-control" , :data_validate_length_range =>"6" , :data_validate_words => "2" , :required => "required" , :type => "text"%>
@@ -22,7 +23,7 @@
   <br>
   <br>
   
-   <div class="item form-group bad">
+  <div class="item form-group bad">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Description : <span class="required">*</span>
     </label>
     <div class="col-md-8 col-sm-8 col-xs-12">
@@ -58,15 +59,11 @@
   
   <br>
   <br>
-  <!-- <select data-tags="true" data-placeholder="Select an option" data-allow-clear="true">
-    
-    
-  </select> -->
   <div class="item form-group bad">
     <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Select User : <span class="required">*</span>
     </label>
-    <div class="col-md-8 col-sm-8 col-xs-12">
-    <select name="users_list" id="" class="select2Field pull-left " data-placeholder="Select User"></select>
+    <div class="col-md-3 col-sm-8 col-xs-12">
+    <select name="users_list" id="" class="select2Field form-control pull-left" data-placeholder="Select User"></select>
   </div>
   <div class="clearfix"></div>
 

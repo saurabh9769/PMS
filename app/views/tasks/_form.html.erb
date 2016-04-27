@@ -2,7 +2,6 @@
   <% if @task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
-
       <ul>
       <% @task.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -11,40 +10,68 @@
     </div>
   <% end %>
 
-  <div class="form-field">
-    <%= f.text_field :name , :placeholder => "Name" , :class => "form-control" %>
+  <div class="item form-group bad">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name :<span class="required">*</span>
+    </label>
+    <div class="col-md-8 col-sm-8 col-xs-12">
+      <%= f.text_field :name , :placeholder => "Name" , :class => "form-control" , :data_validate_length_range =>"6" , :data_validate_words => "2" , :required => "required" , :type => "text"%>
+    </div>
+    <!-- <div class="alert">please put something here</div> -->
   </div>
-
+  <br>
+  <br>
   <br>
   
-  <div class="form-field">
-    <%= f.text_area :description , :class => "form-control" , :placeholder => "Description" %>
-  </div>
-  
-  <br>
-
-  <div class="form-field">
-    <%= f.text_field :status , :class => "form-control" , :placeholder => "Project Status" %>
-  </div>
-
-  <br>
-
-  <div class="form-field">
-    <%= f.text_field :start_date , :class => "datepicker form-control" , :placeholder => "Start Date(mm/dd//yyyy)" %>
-  </div>
-
-  <br>
-  
-  <div class="form-field">
-    <%= f.text_field :end_date , :class => "datepicker form-control" , :placeholder => "End Date(mm/dd//yyyy)" %>
+  <div class="item form-group bad">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Description : <span class="required">*</span>
+    </label>
+    <div class="col-md-8 col-sm-8 col-xs-12">
+      <%= f.text_area :description , :class => "form-control" , :placeholder => "Description" , :data_validate_length_range =>"6" , :data_validate_words => "2" , :required => "required" , :type => "text"%>
+    </div>
+    <!-- <div class="alert">please put something here</div> -->
   </div>
   
   <br>
   <br>
+  <br>
+  <br>
 
+  <div class="item form-group bad">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Select Status : <span class="required">*</span>
+    </label>
+    <div class="col-md-3 col-sm-8 col-xs-12">
+    <%= f.select :status, [['Select Status'],['Active','active'],['Pending','pending'],['Completed','completed']] , :class => "form-control"%>
+  </div>
+  <div class="clearfix"></div>
 
-  <div class="actions">
-    <button class="btn btn-info btn-block" type="submit">Submit</button>
+  <br>
+
+  <div class="item form-group bad">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Start Date : <span class="required">*</span>
+    </label>
+    <div class="col-md-8 col-sm-8 col-xs-12">
+    <%= f.text_field :start_date , :class => "datepicker form-control" , :placeholder => "Start Date(mm/dd//yyyy)" , :data_validate_length_range =>"6" , :data_validate_words => "2" , :required => "required" %>
+   </div>
+    <!-- <div class="alert">please put something here</div> -->
+  </div>
+
+  <br>
+  <br>
+  
+  <div class="item form-group bad">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">End Date : <span class="required">*</span>
+    </label>
+    <div class="col-md-8 col-sm-8 col-xs-12">
+      <%= f.text_field :end_date , :class => "datepicker form-control" , :placeholder => "End Date(mm/dd//yyyy)" , :data_validate_length_range =>"6" , :data_validate_words => "2" , :required => "required" %>
+    </div>
+    <!-- <div class="alert">please put something here</div> -->
+  </div>
+  
+  <br>
+  <br>
+  <br>
+  <div class="col-md-8 col-sm-8 col-xs-12">
+    <button class="col-md-offset-3 btn btn-info btn-block" type="submit">Submit</button>
   </div>
 <% end %>
 

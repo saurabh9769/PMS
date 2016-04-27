@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   
+  get 'home/index'
+
   default_url_options :host => "localhost"
-  root 'projects#index'
+  root 'home#index'
 
   devise_for :users, :controllers => {:registrations => "users/registrations"}
 

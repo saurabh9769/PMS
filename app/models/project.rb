@@ -15,5 +15,4 @@ class Project < ActiveRecord::Base
 
 	paginates_per 4
 	max_paginates_per 100
-
 end

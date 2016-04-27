@@ -1,29 +1,27 @@
-<div class="container">
-	<div class="row">
-	  <div class="col-md-6 col-md-offset-3">
-	   	<div class="pull-right">
-	   		<%= link_to 'Show', @project , :class => "label label-default"%> |
-	   		<%= link_to 'Add Milestone', project_milestones_path(project_id: @project.id) , :class => "label label-default" %> |
-				<%= link_to 'Back', projects_path , :class => "label label-default" %>
-			</div>
-	  	<div class="panel panel-default">
-	    	<div class="panel-heading">
-	    		<div class="row">
-	        	<div class="col-xs-12">
-	        		<h3 class="text-center"><strong>Edit Project</strong></h3>
-	      		</div>
-	    		</div>
-	  		</div>
-	  		<br>
-	  		<div class="panel-body">
-		    	<div class="text-center">
-		      	<div class="row">
-			        <div class="col-lg-12 col-md-6 col-xs-6">
-		          	<div class="form-group">
-									<%= render 'form' %>
-								</div>
-							</div>
-						</div>
+<div class="col-md-6 col-sm-12 col-xs-12 col-md-offset-3">
+  <div class="pull-right">
+    <%= link_to 'Show', @project , :class => ""%> |
+    <%= link_to 'Add Milestone', project_milestones_path(project_id: @project.id) , :class => "" %> |
+    <%= link_to 'Back', projects_path , :class => "" %>
+    <br>
+    <br>
+  </div>
+</div>
+<div class="col-md-6 col-sm-12 col-xs-12 col-md-offset-3">
+  <div class="x_panel">
+  	<div class="x_content">
+      <div class="dashboard-widget-content">
+        <div class="col-md-6 col-md-offset-3 hidden-small">
+          <h2 class="line_30">Edit Project</h2>
+    		</div>
+  		</div>
+		</div>
+		<br>
+	  <div class="text-center">
+    	<div class="row">
+        <div class="col-lg-12 col-md-6 col-xs-6">
+        	<div class="form-group">
+						<%= render 'form' %>
 					</div>
 				</div>
 			</div>

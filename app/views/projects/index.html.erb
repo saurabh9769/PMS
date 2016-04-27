@@ -1,47 +1,46 @@
-<%= render 'search_project_form' %>
-<div class="panel panel-default">
-  <div class="panel-heading flex-box flex-vertical-center-align justify-content-space-between">
-    <h3 class="col-md-9">Projects</h3>
-  </div>
-  <div class="panel-body">
-  </div>
-  <div class="container">
-    <div class="col-md-12">
-     <table class="table table-list-search table-hover">
-        <div class="pull-right">
-          <% if can? :manage, Project %>
-            <%= link_to 'New Project', new_project_path , :class => "btn btn-info" %>
-          <% end %>
-        </div>
-        <br>
-        <br>
-        <br>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Start date</th>
-            <th>End date</th>
-            <th colspan="3">Manage</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @projects.each do |project| %>
+<div class="container">
+  <div class="row tile_count">
+    <%= render 'search_project_form' %>
+    <div class="panel-heading flex-box flex-vertical-center-align justify-content-space-between">
+      <h3 class="col-md-9">Projects</h3>
+    </div>
+    <div class="container">
+      <div class="col-md-12">
+       <table class="table table-list-search table-hover">
+          <div class="pull-right">
+            <% if can? :manage, Project %>
+              <%= link_to 'New Project', new_project_path , :class => "btn btn-info" %>
+            <% end %>
+          </div>
+          <br>
+          <br>
+          <br>
+          <thead>
             <tr>
-              <td><%= project.name %></td>
-              <td><%= project.description %></td>
-              <td><%= project.start_date %></td>
-              <td><%= project.end_date %></td>
-              <td><%= link_to '', project , :class => "glyphicon glyphicon-eye-open" , :title => "Show" %></td>
-              <td><%= link_to '', edit_project_path(project) , :class => "glyphicon glyphicon-wrench" , :title => "Edit" %></td>
-              <td><%= link_to '', project, method: :delete, data: { confirm: 'Are you sure?' } , :class => "glyphicon glyphicon-trash" , :title => "Destroy" %></td>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Start date</th>
+              <th>End date</th>
+              <th colspan="1" style="width: 260px;">Manage</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-      <%= paginate @projects %>
-      <br>
+          </thead>
+
+          <tbody>
+            <% @projects.each do |project| %>
+              <tr>
+                <td><%= link_to project.name, project  %></td>
+                <td><%= project.description %></td>
+                <td><%= project.start_date %></td>
+                <td><%= project.end_date %></td>
+                <td><%= link_to raw("<span class='fa fa-wrench'></span>Edit"), edit_project_path(project) , :class => "btn btn-info btn-sm" , :title => "Edit" %> &nbsp; &nbsp;
+                    <%= link_to raw("<span class='fa fa-trash'></span>Delete"), project, method: :delete, data: { confirm: 'Are you sure?' } , :class => "btn btn-danger btn-sm" , :title => "Destroy" %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <%= paginate @projects %>
+        <br>
+      </div>
     </div>
   </div>
 </div>

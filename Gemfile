@@ -19,6 +19,9 @@ gem 'pry' , group: :development
 gem 'kaminari'
 gem 'cancancan'
 gem 'ransack'
+
+gem 'font-awesome-sass', '~> 4.5.0'
+
 gem 'select2-rails'
 
 # Use jquery as the JavaScript library

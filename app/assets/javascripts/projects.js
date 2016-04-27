@@ -44,6 +44,26 @@ jQuery(document).ready(function($) {
           }
       }
   });
+
+$('form').validate({
+  rules: {
+    'project[name]': {
+      required: true
+    },
+    'project[description]': {
+      required: true
+    }
+  },
+  messages: {
+    'project[name]': {
+      required: "Name can't be blank"
+    },
+    'project[description]': {
+      required: "Description can't be empty"
+    }
+  } 
+});
+
 });
 
 

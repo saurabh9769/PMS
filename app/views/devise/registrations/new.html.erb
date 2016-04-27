@@ -1,41 +1,74 @@
-<div class="col-md-6 col-md-offset-3">
-  <div class="row">
-    <div class="col-lg-12">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Gentallela Alela! | </title>
+
+  <!-- Bootstrap core CSS -->
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="fonts/css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/animate.min.css" rel="stylesheet">
+
+  <!-- Custom styling plus plugins -->
+  <link href="css/custom.css" rel="stylesheet">
+  <link href="css/icheck/flat/green.css" rel="stylesheet">
+
+
+  <script src="js/jquery.min.js"></script>
+</head>
+
+<body style="background:#F7F7F7;">
+
+  <div class="">
+    <a class="hiddenanchor" id="toregister"></a>
+    <a class="hiddenanchor" id="tologin"></a>
+
+    <div id="wrapper">
       <div id="login" class="animate form">
         <section class="login_content">
           <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
             <%= devise_error_messages! %>
-            <h1>Sign Up</h1>
-            <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
-              <%= f.text_field :first_name, autofocus: true , :placeholder => "First Name" , :class => "form-control has-feedback-left" , :id => "inputSuccess2" %>
-              <span class="glyphicon glyphicon-user form-control-feedback left" aria-hidden="true"></span>
+            <h1>Create Account</h1>
+            <div>
+              <%= f.text_field :first_name, autofocus: true , :placeholder => "First Name" , :class => "form-control" %>
+              <!-- <span class="glyphicon glyphicon-user form-control-feedback left" aria-hidden="true"></span> -->
             </div>
 
-            <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
-              <%= f.text_field :last_name, autofocus: true , :placeholder => "Last Name" , :class => "form-control has-feedback-left" , :id => "inputSuccess2" %>
-              <span class="glyphicon glyphicon-user form-control-feedback left" aria-hidden="true"></span>
+            <div>
+              <%= f.text_field :last_name, autofocus: true , :placeholder => "Last Name" , :class => "form-control"%>
+              <!-- <span class="glyphicon glyphicon-user form-control-feedback left" aria-hidden="true"></span> -->
             </div>
 
-            <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
-              <%= f.email_field :email, autofocus: true, :class => "form-control has-feedback-left" , :placeholder => "Email Address " , :required => "" , :id => "inputSuccess4" %>
-              <span class="glyphicon glyphicon-envelope form-control-feedback left" aria-hidden="true"></span>
+            <div>
+              <%= f.email_field :email, autofocus: true, :class => "form-control" , :placeholder => "Email Address " , :required => "" %>
+              <!-- <span class="glyphicon glyphicon-envelope form-control-feedback left" aria-hidden="true"></span> -->
             </div>
-            <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
-              <%= f.password_field :password, autocomplete: "off" , :class => "form-control has-feedback-left" , :placeholder => "Password (minimum 8 characters)" %>
-              <span class="glyphicon glyphicon-lock form-control-feedback left" aria-hidden="true"></span>
+            <div>
+              <%= f.password_field :password, autocomplete: "off" , :class => "form-control", :placeholder => "Password (minimum 8 characters)" %>
+              <!-- <span class="glyphicon glyphicon-lock form-control-feedback left" aria-hidden="true"></span> -->
             </div>
-            <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
-              <%= f.password_field :password_confirmation, autocomplete: "off" , :class => "form-control has-feedback-left" , :placeholder => "Password Confirmation" %>
-              <span class="glyphicon glyphicon-lock form-control-feedback left" aria-hidden="true"></span>
+            <div>
+              <%= f.password_field :password_confirmation, autocomplete: "off" , :class => "form-control" , :placeholder => "Password Confirmation" %>
+              <!-- <span class="glyphicon glyphicon-lock form-control-feedback left" aria-hidden="true"></span> -->
             </div>
-            <div class="text-center col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
+            <div class="text-center">
               <%= f.collection_select :role, User::ROLES, :to_s, :humanize , {prompt: "Select a Role"}, {class: "form-control"} %>
               <br>
             </div>
             <br>
-            <div>
-              <%= f.submit "Sign up" , :class => "btn btn-info btn-block form col-md-12 col-sm-6 col-xs-12 form-group has-feedback" %>
-            </div>
+            <a>
+              <div class="col-md-6 col-md-offset-3">
+                <%= f.submit "Sign up" , :class => "btn btn-default submit" %>
+              </div>
+            </a>
             <div class="clearfix"></div>
             <div class="separator">
               <%- if controller_name != 'sessions' %>

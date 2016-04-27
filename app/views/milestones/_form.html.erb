@@ -10,31 +10,60 @@
       </ul>
     </div>
   <% end %>
- <div class="form-field">
-    <%= f.search_field :name , :placeholder => "Name" , :class => "form-control" %>
+
+  <div class="item form-group bad">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Name :<span class="required">*</span>
+    </label>
+    <div class="col-md-8 col-sm-8 col-xs-12">
+      <%= f.text_field :name , :placeholder => "Name" , :class => "form-control" , :data_validate_length_range =>"6" , :data_validate_words => "2" , :required => "required" , :type => "text"%>
+    </div>
+    <!-- <div class="alert">please put something here</div> -->
   </div>
   <br>
+  <br>
+  <br>
   
-  <div class="form-field">
-    <%= f.text_area :description , :class => "form-control" , :placeholder => "Description" %>
+  <div class="item form-group bad">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Description : <span class="required">*</span>
+    </label>
+    <div class="col-md-8 col-sm-8 col-xs-12">
+      <%= f.text_area :description , :class => "form-control" , :placeholder => "Description" , :data_validate_length_range =>"6" , :data_validate_words => "2" , :required => "required" , :type => "text"%>
+    </div>
+    <!-- <div class="alert">please put something here</div> -->
   </div>
   
+  <br>
+  <br>
   <br>
 
-  <div class="form-field">
-    <%= f.text_field :start_date , :class => "datepicker form-control" , :placeholder => "Start Date(mm/dd//yyyy)" %>
+  <div class="item form-group bad">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">Start Date : <span class="required">*</span>
+    </label>
+    <div class="col-md-8 col-sm-8 col-xs-12">
+    <%= f.text_field :start_date , :class => "datepicker form-control" , :placeholder => "Start Date(mm/dd//yyyy)" , :data_validate_length_range =>"6" , :data_validate_words => "2" , :required => "required" %>
+   </div>
+    <!-- <div class="alert">please put something here</div> -->
   </div>
 
   <br>
+  <br>
   
-  <div class="form-field">
-    <%= f.text_field :end_date , :class => "datepicker form-control" , :placeholder => "End Date(mm/dd//yyyy)" %>
+  <div class="item form-group bad">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">End Date : <span class="required">*</span>
+    </label>
+    <div class="col-md-8 col-sm-8 col-xs-12">
+      <%= f.text_field :end_date , :class => "datepicker form-control" , :placeholder => "End Date(mm/dd//yyyy)" , :data_validate_length_range =>"6" , :data_validate_words => "2" , :required => "required" %>
+    </div>
+    <!-- <div class="alert">please put something here</div> -->
   </div>
   
   <br>
+  <br>
+
+  <div class="clearfix"></div>
   
-  <div class="actions">
-    <button class="btn btn-info btn-block" type="submit">Submit</button>
+  <div class="col-md-8 col-sm-8 col-xs-12">
+    <button class="col-md-offset-3 btn btn-info btn-block" type="submit">Submit</button>
   </div>
 <% end %>
 

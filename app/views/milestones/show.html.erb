@@ -1,46 +1,42 @@
-<br>
-<br>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-    	<div class="pull-right">
-		   	<%= link_to 'Edit', edit_project_milestone_path(id: @milestone.id , project_id: @project.id) , :class => "label label-default"  %> |
-				<%= link_to 'Back', project_milestones_path(project_id: @project.id) , :class => "label label-default"  %> | 
-				<%= link_to 'Add Task' , new_project_milestone_task_path(project_id: @project.id , milestone_id: @milestone.id) , :class => "label label-default" %> | 
-				<%= link_to 'View Tasks' , project_milestone_tasks_path(project_id: @project.id , milestone_id: @milestone.id) , :class => "label label-default" %>
-				<br>
-				<br>
-    	</div>
-	  	<div class="panel panel-default">
-        <div class="panel-heading">
-          <div class="row">
-            <div class="col-xs-12">
-              <h3 class="text-center"><strong>Milestone - <%= @milestone.name %></strong></h3>
-            </div>
+<div class="col-md-6 col-sm-3 col-xs-12 col-md-offset-3">
+  <div class="pull-right">
+    <%= link_to 'Edit', edit_project_milestone_path(id: @milestone.id , project_id: @project.id) , :class => ""  %> |
+    <%= link_to 'Back', project_milestones_path(project_id: @project.id) , :class => ""  %> | 
+    <%= link_to 'Add Task' , new_project_milestone_task_path(project_id: @project.id , milestone_id: @milestone.id) , :class => "" %> | 
+    <%= link_to 'View Tasks' , project_milestone_tasks_path(project_id: @project.id , milestone_id: @milestone.id) , :class => "" %>
+    <br>
+    <br>
+  </div>
+</div>
+<div class="col-md-6 col-sm-3 col-xs-12 col-md-offset-3">
+  <section class="panel">
+    
+	  <div class="x_title">
+      <h2>Milestone Description</h2>
+      <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+      <h3 class="green"><i class="fa fa-paint-brush"></i> <%= @milestone.name %></h3>
+      <br>
+      <div class="project_detail">
+		    <div class="row">
+		      <div class="col-md-12">
+						<div class="well col-md-12">
+						  Description : <%= @milestone.description %>
+						</div>
           </div>
         </div>
-        <br>
-	      <div class="container">
-			    <div class="row">
-			      <div class="col-md-6">
-							<div class="well col-md-10">
-							  Description : <%= @milestone.description %>
-							</div>
-							<div class="clearfix"></div>
-							<p>
-							  <strong>Start date:</strong>
-							  <%= @milestone.start_date %>
-							</p>
-
-							<p>
-							  <strong>End date:</strong>
-							  <%= @milestone.end_date %>
-							</p>
-							<br>
-						</div>
-					</div>
-				</div>
+				<div class="clearfix"></div>
+				<p>
+				  <p class="title">Start Date : </p>
+				  <p><%= @milestone.start_date %> </p>
+				</p>
+				<p>
+				  <p class="title">End Date : </p>
+				  <p><%= @milestone.end_date %> </p>
+				</p>
+				<br>
 			</div>
 		</div>
-	</div>
+	</section>
 </div>

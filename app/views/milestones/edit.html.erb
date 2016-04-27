@@ -1,32 +1,30 @@
-<div class="container">
-	<div class="row">
-	  <div class="col-md-6 col-md-offset-3">
-	   	<div class="pull-right">
-	   		<%= link_to 'Show', project_milestone_path(project_id: @project.id , id: @milestone.id) , :class => "label label-default" %> |
-	   		<%= link_to 'Add Task', project_milestone_tasks_path(project_id: @project.id, milestone_id: @milestone.id) , :class => "label label-default" %> |
-				<%= link_to 'Back', project_milestones_path(project_id: @project.id) , :class => "label label-default" %>
-			</div>
-    	<div class="panel panel-default">
-      	<div class="panel-heading">
-      		<div class="row">
-	        	<div class="col-xs-12">
-          		<h3 class="text-center"><strong>Editing Milestone</strong></h3>
-        		</div>
-      		</div>
+<div class="col-md-6 col-sm-12 col-xs-12 col-md-offset-3">
+  <div class="pull-right">
+    <%= link_to 'Show', project_milestone_path(project_id: @project.id , id: @milestone.id) , :class => "" %> |
+    <%= link_to 'Add Task', project_milestone_tasks_path(project_id: @project.id, milestone_id: @milestone.id) , :class => "" %> |
+    <%= link_to 'Back', project_milestones_path(project_id: @project.id) , :class => "" %>
+    <br>  
+    <br>
+  </div>
+</div>
+<div class="col-md-6 col-sm-12 col-xs-12 col-md-offset-3">
+  <div class="x_panel">
+  	<div class="x_content">
+      <div class="dashboard-widget-content">
+        <div class="col-md-6 col-md-offset-3 hidden-small">
+      		<h2 class="line_30">Editing Milestone</h2>
     		</div>
-    		<br>
-    		<div class="panel-body">
-        	<div class="text-center">
-          <div class="row">
-            <div class="col-lg-12 col-md-6 col-xs-6">
-              <div class="form-group">
-								<%= render 'form' %>
-							</div>
-						</div>
-					</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    	</div>
+  	</div>
+		<br>
+		<div class="text-center">
+      <div class="row">
+        <div class="col-lg-12 col-md-6 col-xs-6">
+          <div class="form-group">
+            <%= render 'form' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -1,36 +1,185 @@
-<div class="col-md-8 col-md-offset-2">
-  <div class="row">
-    <div class="col-lg-12">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Gentallela Alela! | </title>
+
+  <!-- Bootstrap core CSS -->
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="fonts/css/font-awesome.min.css" rel="stylesheet">
+  <link href="css/animate.min.css" rel="stylesheet">
+
+  <!-- Custom styling plus plugins -->
+  <link href="css/custom.css" rel="stylesheet">
+  <link href="css/icheck/flat/green.css" rel="stylesheet">
+
+
+  <script src="js/jquery.min.js"></script>
+</head>
+
+<body style="background:#F7F7F7;">
+
+  <div class="">
+    <a class="hiddenanchor" id="toregister"></a>
+    <a class="hiddenanchor" id="tologin"></a>
+
+    <div id="wrapper">
       <div id="login" class="animate form">
         <section class="login_content">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <h1>Login Form</h1> 
-             <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
-              <%= f.email_field :email, autofocus: true, :class => "form-control has-feedback-left" , :placeholder => "Email Address " , :required => "" , :id => "inputSuccess4" %>
-              <span class="glyphicon glyphicon-envelope form-control-feedback left" aria-hidden="true"></span>
-            </div>
-            <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
-              <%= f.password_field :password, autocomplete: "off" , :class => "form-control has-feedback-left" , :placeholder => "Password" %>
-              <span class="glyphicon glyphicon-lock form-control-feedback left" aria-hidden="true"></span>
+            <h1>Login Form</h1>
+            <div>
+              <%= f.email_field :email, autofocus: true, :class => "form-control" , :placeholder => "Email Address " , :required => "" %>
             </div>
             <div>
-              <% if devise_mapping.rememberable? -%>
-                <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
-                  <%= f.check_box :remember_me %>
-                  <%= f.label :remember_me %>
-                </div>
-              <% end -%>            
-               <button type="submit" class="btn btn-success btn-block col-md-12 col-sm-6 col-xs-12 form-group has-feedback">Sign in</button>
+              <%= f.password_field :password, autocomplete: "off" , :class => "form-control" , :placeholder => "Password" , :required => "" %>
+            </div>
+            <% if devise_mapping.rememberable? -%>
+              <div class="col-md-12 col-sm-6 col-xs-12 form-group">
+                <%= f.check_box :remember_me %>
+                <%= f.label :remember_me %>
+              </div>
+            <% end -%>  
+            <div>
+              <!-- <a class="btn btn-default submit">Sign in</a> -->
+              <a>
+              <button type="submit" class="btn btn-default">Log in</button> 
+              &nbsp; &nbsp; &nbsp; &nbsp;
+              <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+              <% end -%>
+              </a>
             </div>
             <div class="clearfix"></div>
-            <div class="separator"></div>
-            <div class="clearfix"></div>
-            <%= render "devise/shared/links" %>
-         <% end %>
-        <!-- form -->
+            <div class="separator">
+              
+              <p class="change_link">New to site?
+                <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                  <%= link_to "Create Account", new_registration_path(resource_name) , :class => "to_register" %><br />
+                <% end -%>
+              </p>
+              <div class="clearfix"></div>
+              <br />
+            </div>
+          </form>
+          <!-- form -->
         </section>
-      <!-- content -->
+        <!-- content -->
+      </div>
+      <div id="register" class="animate form">
+        <section class="login_content">
+          <form>
+            <h1>Create Account</h1>
+            <div>
+              <%= f.text_field :first_name, autofocus: true , :placeholder => "First Name" , :class => "form-control" , :required => "" , :type => "text" %>
+              <!-- <input type="text" class="form-control" placeholder="Username" required="" /> -->
+            </div>
+            <div>
+              <%= f.text_field :last_name, autofocus: true , :placeholder => "Last Name" , :class => "form-control" , :required => "" , :type => "text" %>
+            </div>
+            <div>
+              <%= f.email_field :email, autofocus: true, :class => "form-control" , :placeholder => "Email Address " , :required => "" , :type => "email" %>
+              <!-- <input type="email" class="form-control" placeholder="Email" required="" /> -->
+            </div>
+            <div>
+              <%= f.password_field :password, autocomplete: "off" , :class => "form-control" , :placeholder => "Password (minimum 8 characters)" , :required => "" , :type => "password" %>
+              <!-- <input type="password" class="form-control" placeholder="Password" required="" /> -->
+            </div>
+            <div>
+              <%= f.password_field :password_confirmation, autocomplete: "off" , :class => "form-control" , :placeholder => "Password Confirmation" , :required => "" , :type => "password" %>
+            </div>
+            <div>
+              <%= f.collection_select :role, User::ROLES, :to_s, :humanize , {prompt: "Select a Role"}, {class: "form-control"} %>
+            </div>
+            <div>
+              <%= f.submit "Sign up" , :class => "btn btn-default submit" %>
+              <!-- <a class="btn btn-default submit" href="index.html">Submit</a> -->
+            </div>
+            <div class="clearfix"></div>
+            <div class="separator">
+
+              <p class="change_link">Already a member ?
+                <a href="#tologin" class="to_register"> Log in </a>
+              </p>
+              <div class="clearfix"></div>
+              <br />
+            </div>
+          </form>
+          <!-- form -->
+        </section>
+        <!-- content -->
+         <% end %>
       </div>
     </div>
   </div>
-</div>
+
+</body>
+
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="fonts/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/animate.min.css" rel="stylesheet">
+
+    
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/icheck/flat/green.css" rel="stylesheet">
+  </head>
+  <body style="background:#F7F7F7;">
+
+    <div class="col-md-4 col-md-offset-4">
+      <div class="row">
+        <div class="col-lg-12">
+          <div id="login" class="animate form">
+            <section class="login_content">
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                <h1>Login Form</h1> 
+                 <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
+                  <%= f.email_field :email, autofocus: true, :class => "form-control" , :placeholder => "Email Address " , :required => "" %>
+                  </div>
+                  <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
+                    <%= f.password_field :password, autocomplete: "off" , :class => "form-control" , :placeholder => "Password" %>
+                  </div>
+                  <div>
+                    <% if devise_mapping.rememberable? -%>
+                      <div class="col-md-12 col-sm-6 col-xs-12 form-group has-feedback">
+                        <%= f.check_box :remember_me %>
+                        <%= f.label :remember_me %>
+                      </div>
+                    <% end -%>            
+                      <button type="submit" class="btn col-md-2 col-sm-6 col-xs-12 form-group has-feedback">Sign in</button>
+                      <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                        <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+                      <% end -%>
+                  </div>
+                <div class="clearfix"></div>
+                <div class="separator"></div>
+                <div class="clearfix"></div>
+                <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                  <%= link_to "New to Site?  Sign up", new_registration_path(resource_name) %><br />
+                <% end -%>             
+              <% end %>
+            
+            </section>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html> -->

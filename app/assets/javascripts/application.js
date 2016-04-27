@@ -14,5 +14,5 @@
 //= require jquery_ujs
 //= require select2
 //= require bootstrap-sprockets
-//= require_tree .
-
+//= require common
+//= require custom

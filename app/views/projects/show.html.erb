@@ -1,48 +1,151 @@
-<br>
-<br>
-<div class="container">
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-    	<div class="pull-right">
-		    <%= link_to 'Edit', edit_project_path(@project) , :class => "label label-default" %> |
-			<%= link_to 'Back', projects_path , :class => "label label-default" %> | 
-			<%= link_to 'Add Milestone' , new_project_milestone_path(project_id: @project.id) , :class => "label label-default" %> | 
-			<%= link_to 'View Milestones' , project_milestones_path(project_id: @project.id) , :class => "label label-default" %>
-			<br>
-			<br>
-    	</div>
-	  	<div class="panel panel-default">
-        <div class="panel-heading">
-        	<div class="row">
-          	<div class="col-xs-12">
-            	<h3 class="text-center"><strong>Project Information</strong></h3>
-          	</div>
-	        </div>
+<div class="col-md-6 col-sm-3 col-xs-12 col-md-offset-3">
+  <div class="pull-right">
+    <%= link_to 'Edit', edit_project_path(@project) , :class => "" %> |
+    <%= link_to 'Back', projects_path , :class => "" %> | 
+    <%= link_to 'Add Milestone' , new_project_milestone_path(project_id: @project.id) , :class => "" %> | 
+    <%= link_to 'View Milestones' , project_milestones_path(project_id: @project.id) , :class => "" %>
+    <br>
+    <br>
+  </div>
+</div>
+<div class="col-md-6 col-sm-3 col-xs-12 col-md-offset-3">
+  <section class="panel">
+    
+    <div class="x_title">
+      <h2>Project Description</h2>
+      <div class="clearfix"></div>
+    </div>
+    <div class="panel-body">
+      <h3 class="green"><i class="fa fa-paint-brush"></i> <%= @project.name %></h3>
+      <br>
+      <div class="project_detail">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="well col-md-12">
+              <p class="title">Description : </p>
+              <p><%= @project.description %></p>
+            </div>
+          </div>
         </div>
-        <br>
-      	<div class="container">
-			    <div class="row">
-			      	<div class="col-md-12">
-							<p>
-							  <strong>Name:</strong>
-							  <%= @project.name %>
-							</p>
-							<p>
-							  <strong>Description:</strong>
-							  <%= @project.description %>
-							</p>
-							<p>
-							  <strong>Start date:</strong>
-							  <%= @project.start_date %>
-							</p>
-							<p>
-							  <strong>End date:</strong>
-							  <%= @project.end_date %>
-							</p>
-						</div>
-					</div>
-				</div>
+        <p class="title">Project Leader</p>
+        <p>Tony Chicken</p>
+        <p class="title">Start Date : </p>
+        <p><%= @project.start_date %></p>
+        <p class="title">End Date : </p>
+        <p><%= @project.end_date %></p>
+      </div>
+
+      <br>
+      <!-- <h5>Project files</h5>
+      <ul class="list-unstyled project_files">
+        <li><a href=""><i class="fa fa-file-word-o"></i> Functional-requirements.docx</a>
+        </li>
+        <li><a href=""><i class="fa fa-file-pdf-o"></i> UAT.pdf</a>
+        </li>
+        <li><a href=""><i class="fa fa-mail-forward"></i> Email-from-flatbal.mln</a>
+        </li>
+        <li><a href=""><i class="fa fa-picture-o"></i> Logo.png</a>
+        </li>
+        <li><a href=""><i class="fa fa-file-word-o"></i> Contract-10_12_2014.docx</a>
+        </li>
+      </ul>
+      <br>
+
+      <div class="text-center mtop20">
+        <a href="#" class="btn btn-sm btn-primary">Add files</a>
+        <a href="#" class="btn btn-sm btn-warning">Report contact</a>
+      </div>
+    </div> -->
+
+  </section>
+
+</div>
+
+
+<!-- <div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    
+    <div class="x_content">
+      <div class="dashboard-widget-content">
+        <div class="col-md-6 col-md-offset-3 hidden-small">
+          <h2 class="line_30">Project Details</h2>
+
+          <table class="countries_list">
+            <tbody>
+              <tr>
+                <td>Name : </td>
+                <td class="fs15 fw700 text-right"><%= @project.name %></td>
+              </tr>
+              <tr>
+                <td>Description : </td>
+                <td class="fs15 fw700 text-right"><%= @project.description %></td>
+              </tr>
+              <tr>
+                <td>Start Date : </td>
+                <td class="fs15 fw700 text-right"><%= @project.start_date %></td>
+              </tr>
+              <tr>
+                <td>End Date : </td>
+                <td class="fs15 fw700 text-right"><%= @project.end_date %></td>
+              </tr> -->
+              <!-- <tr>
+                <td>Britain</td>
+                <td class="fs15 fw700 text-right">10%</td>
+              </tr> -->
+  <!--           </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+<!-- <div class="row">
+  <div class="col-md-6">
+  	
+      <div class="container">
+      	<div class="row">
+        	<div class="col-xs-12">
+          	<h3 class="text-center"><strong>Project Information</strong></h3>
+        	</div>
+        </div>
+      </div>
+      <br>
+    	<div class="container">
+		    <table class="table">
+		    	<div class="col-md-offset-1">
+						<p>
+						  <div class="item form-group bad">
+						    <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">Name : </label>
+						    <div class="col-md-8 col-sm-8 col-xs-12">
+						  		<%= @project.name %>
+						  	</div>
+						  </div>
+						</p>
+						<p>
+						  <div class="item form-group bad">
+						    <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">Description : </label>
+						    <div class="col-md-8 col-sm-8 col-xs-12">
+						    <%= @project.description %>
+              </div>
+						</p>
+						<p>
+						  <div class="item form-group bad">
+						    <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">Start Date : </label>
+                <%= @project.start_date %>
+              </div>
+						</p>
+						<p>
+						  <div class="item form-group bad">
+						    <label class="control-label col-md-2 col-sm-3 col-xs-12" for="name">End Date : </label>
+						    <%= @project.end_date %>
+						  </div>
+            </p>
+          </div>
+				</div> 
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
